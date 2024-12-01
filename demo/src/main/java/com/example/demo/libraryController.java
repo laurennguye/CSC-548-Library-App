@@ -1,0 +1,43 @@
+package com.example.demo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/library")
+public class LibraryController {
+
+    private final LibraryService libraryService;
+
+    @Autowired
+    public LibraryController(LibraryService libraryService) {
+        this.libraryService = libraryService;
+    }
+
+    @GetMapping
+    public String listBooks(Model model) {
+        model.addAttribute("books", libraryService.getAvailableBooks());
+        model.addAttribute("newBook", new Book());
+        return "library";
+    }
+
+    @PostMapping("/add")
+    public String addBook(@ModelAttribute Book newBook) {
+        libraryService.addBook(newBook);
+        return "redirect:/library";
+    }
+
+    @PostMapping("/borrow")
+    public String borrowBook(@RequestParam Integer bookId) {
+        libraryService.borrowBook(bookId);
+        return "redirect:/library";
+    }
+
+    @PostMapping("/return")
+    public String returnBook(@RequestParam Integer bookId) {
+        libraryService.returnBook(bookId);
+        return "redirect:/library";
+    }
+}
