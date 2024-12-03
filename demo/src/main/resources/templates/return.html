@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Books to Return</title>
+</head>
+<body>
+    <h2>Books to Return</h2>
+    <div>
+        <ul>
+            <li th:each="book : ${borrowedBooks}">
+                <span th:text="${book.title}">Book Title</span>,
+                <span th:text="${book.author}">Author</span>,
+                <span th:text="${book.isbn}">ISBN</span>
+                <form th:action="@{/library/return}" method="post">
+                    <input type="hidden" th:value="${book.id}" name="bookId" />
+                    <button type="submit">Return</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+    <a href="/library">Back to Library</a>
+</body>
+</html>

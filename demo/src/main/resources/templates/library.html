@@ -13,7 +13,8 @@
                 <span th:text="${book.isbn}">ISBN</span>
                 <form th:action="@{/library/borrow}" method="post">
                     <input type="hidden" th:value="${book.id}" name="bookId" />
-                    <button type="submit">Borrow</button>
+                    <button type="submit" th:if="${!book.borrowed}">Borrow</button>
+                    <button type="submit" th:if="${book.borrowed}">Return</button>
                 </form>
             </li>
         </ul>
@@ -22,6 +23,7 @@
     <div>
         <form th:action="@{/library/add}" th:object="${newBook}" method="post">
             <input type="text" th:field="*{title}" placeholder="Title" />
+<<<<<<< HEAD
             <input type="text" th:field="*{author}" placeholder="Author" />
             <input type="text" th:field="*{isbn}" placeholder="ISBN" />
             <button type="submit">Add Book</button>
@@ -38,3 +40,12 @@
     </div>
 </body>
 </html>
+=======
+            <input type="text" th:field="*{author}" placeholder="Author" required />
+            <input type="text" th:field="*{isbn}" placeholder="ISBN" required />
+            <button type="submit">Add Book</button>
+        </form>
+    </div>
+</body>
+</html>  
+>>>>>>> 0e8dafe36fb869ce22d10e166e9e3e88e49f2d9a
