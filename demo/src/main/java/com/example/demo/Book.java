@@ -1,10 +1,8 @@
 package com.example.demo;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class Book {
     private static final AtomicInteger count = new AtomicInteger(0); 
-    private final int id;
+    private Integer id;
     private String title;
     private String author;
     private String isbn;
@@ -28,6 +26,10 @@ public class Book {
     // Getters and Setters
     public int getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitle() {

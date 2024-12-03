@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/library")
-public class LibraryController {
+public class libraryController {
 
     private final LibraryService libraryService;
 
     @Autowired
-    public LibraryController(LibraryService libraryService) {
+    public libraryController(LibraryService libraryService) {
         this.libraryService = libraryService;
     }
 
