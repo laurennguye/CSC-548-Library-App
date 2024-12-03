@@ -20,6 +20,14 @@ public class LibraryService {
         return books.stream().filter(book -> !book.isBorrowed()).collect(Collectors.toList());
     }
 
+    // Added list to support /borrow
+    public List<Book> getBorrowedBooks() {
+        return books.stream()
+                    .filter(Book::isBorrowed)
+                    .collect(Collectors.toList());
+    }
+    
+
     // Updated to deal with duplicate books
     public void addBook(Book book) {
         if (books.stream().noneMatch(b -> b.getTitle().equalsIgnoreCase(book.getTitle()) 
