@@ -10,17 +10,13 @@ public class Book {
     private String isbn;
     private boolean borrowed;
 
-
     // Default constructor
     public Book() {
         this.id = count.incrementAndGet();
-        this.title = "Unknown Title";
-        this.author = "Unknown Author";
-        this.isbn = "Unknown ISBN";
         this.borrowed = false;
     }
 
-    //Parameterized Constructor
+    // Parameterized constructor
     public Book(String title, String author, String isbn) {
         this.id = count.incrementAndGet();
         this.title = title; 
@@ -29,7 +25,7 @@ public class Book {
         this.borrowed = false;
     }
 
-    // Getters
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -38,19 +34,30 @@ public class Book {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getAuthor() {
         return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getIsbn() {
         return isbn;
     }
 
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
     public boolean isBorrowed() {
         return borrowed;
     }
 
-    // Setters
     public void setBorrowed(boolean borrowed) {
         this.borrowed = borrowed;
     }

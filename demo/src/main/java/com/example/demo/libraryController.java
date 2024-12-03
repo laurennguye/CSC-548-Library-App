@@ -29,6 +29,7 @@ public class LibraryController {
 
     @PostMapping("/add")
     public String addBook(@ModelAttribute Book newBook) {
+        System.out.println("Adding book: " + newBook); // Debug output
         libraryService.addBook(newBook);
         return "redirect:/library";
     }
