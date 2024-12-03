@@ -10,11 +10,22 @@ public class Book {
     private String isbn;
     private boolean borrowed;
 
+
+    // Default constructor
     public Book() {
         this.id = count.incrementAndGet();
-        this.title = title;
-        this.author = author;
-        this.isbn = isbn;
+        this.title = "Unknown Title";
+        this.author = "Unknown Author";
+        this.isbn = "Unknown ISBN";
+        this.borrowed = false;
+    }
+
+    //Parameterized Constructor
+    public Book(String title, String author, String isbn) {
+        this.id = count.incrementAndGet();
+        this.title = title; 
+        this.author = author; 
+        this.isbn = isbn; 
         this.borrowed = false;
     }
 

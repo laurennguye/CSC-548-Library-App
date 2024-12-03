@@ -13,7 +13,8 @@
                 <span th:text="${book.isbn}">ISBN</span>
                 <form th:action="@{/library/borrow}" method="post">
                     <input type="hidden" th:value="${book.id}" name="bookId" />
-                    <button type="submit">Borrow</button>
+                    <button type="submit" th:if="${!book.borrowed}">Borrow</button>
+                    <button type="submit" th:if="${book.borrowed}">Return</button>
                 </form>
             </li>
         </ul>
