@@ -2,17 +2,21 @@ package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/library")
-public class LibraryController {
+public class libraryController {
 
     private final LibraryService libraryService;
 
     @Autowired
-    public LibraryController(LibraryService libraryService) {
+    public libraryController(LibraryService libraryService) {
         this.libraryService = libraryService;
     }
 

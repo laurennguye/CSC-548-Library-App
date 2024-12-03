@@ -22,4 +22,19 @@
     <div>
         <form th:action="@{/library/add}" th:object="${newBook}" method="post">
             <input type="text" th:field="*{title}" placeholder="Title" />
-            <
+            <input type="text" th:field="*{author}" placeholder="Author" />
+            <input type="text" th:field="*{isbn}" placeholder="ISBN" />
+            <button type="submit">Add Book</button>
+        </form>
+    </div>
+
+    <h3>Return a Book</h3>
+    <div>
+        <form th:action="@{/library/return}" method="post">
+            <label for="bookId">Book ID:</label>
+            <input type="number" id="bookId" name="bookId" required />
+            <button type="submit">Return Book</button>
+        </form>
+    </div>
+</body>
+</html>
